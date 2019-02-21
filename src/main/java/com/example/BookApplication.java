@@ -43,14 +43,13 @@ public class BookApplication  implements EnvironmentAware {
     	RestTemplate restT = new RestTemplate();
     	String url;
     	url = "http://"+name+"/available";
-    	
+    	System.out.println("name:"+name+",url:"+url);
 
     	SimpleClientHttpRequestFactory reqfac = new SimpleClientHttpRequestFactory();
     	System.out.println("ip:"+proxyIp+"port:"+proxyPort);
     	reqfac.setProxy(new Proxy(Type.HTTP, new InetSocketAddress(proxyIp, Integer.parseInt(proxyPort) )) );
     	restT.setRequestFactory(reqfac);
-
-    	System.out.println(url);
+    	
     	quoteString = restT.getForObject(url, String.class);
 
         return "the provider return: "+quoteString;
