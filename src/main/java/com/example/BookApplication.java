@@ -32,11 +32,7 @@ public class BookApplication  implements EnvironmentAware {
     	String quoteString = "mesher test";
         return "I am available "+quoteString;
     }
-    @RequestMapping(value = "/hello")
-    public String available() {
-    	String quoteString = "mesher test";
-        return "I am available "+quoteString;
-    }
+
     @RequestMapping(value = "/consumer")
     public String consumer( @RequestParam(value = "name", required = true) String name) {
 //    	System.setProperty("http.proxySet", "true");
